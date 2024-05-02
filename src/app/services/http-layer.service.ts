@@ -30,7 +30,7 @@ export class HttpLayerService {
       // data['language'] = localStorage.getItem('lang') || 'en';
       let payloadData = data;
       if(userDetails){
-        payloadData = { ...userDetails, ...payloadData }
+        payloadData = { ...payloadData, ...userDetails }
       }
       const contentType = this.detectContentType('POST', url, data);
       // return this._http.post(url, data)

@@ -24,9 +24,10 @@
             <div class="child-level" *ngIf="topSectionData[topNews]">
 
                 <div class="top-news-img cursor-pointer" (click)="onNewsClick(topSectionData[topNews])">
-                    <img *ngIf="topSectionData[topNews]['images'] && topSectionData[topNews]['images'][0] && topSectionData[topNews]['images'][0].id"
+                    <img *ngIf="topSectionData[topNews]['images'] && topSectionData[topNews]['images'][0]" [src]="topSectionData[topNews]['images'][0]['tempURL']" alt="Image from Google Drive">
+                    <!-- <img *ngIf="topSectionData[topNews]['images'] && topSectionData[topNews]['images'][0] && topSectionData[topNews]['images'][0].id"
                         [src]="'https://drive.google.com/uc?export=view&id='+topSectionData[topNews]['images'][0].id"
-                        alt="Image" />
+                        alt="Image" /> -->
                     <div class="top-news-content">
                         <div class="top-news-content-inner">
                             <a class="top-news-date" href="javascript:void(0)"><i
@@ -49,9 +50,10 @@
         </div>
         <div class="child-level " *ngFor="let categoryNews of category.records">
             <div class="category-news-img cursor-pointer" (click)="onNewsClick(categoryNews)">
-                <img *ngIf="categoryNews['images'] && categoryNews['images'][0] && categoryNews['images'][0].id"
-                    [src]="'https://drive.google.com/uc?export=view&id='+categoryNews['images'][0].id" alt="Image" />
-                <div class="category-news-content">
+                <img *ngIf="categoryNews['images'][0] && categoryNews['images'][0]" [src]="categoryNews['images'][0]['tempURL']" alt="Image from Google Drive">
+                <!-- <img *ngIf="categoryNews['images'] && categoryNews['images'][0] && categoryNews['images'][0].id"
+                    [src]="'https://drive.google.com/uc?export=view&id='+categoryNews['images'][0].id" alt="Image" />-->
+                <div class="category-news-content"> 
                     <div class="category-news-content-inner">
                         <a class="category-news-date" href="javascript:void(0)"><i
                                 class="far fa-clock"></i>{{categoryNews.createdDate |
